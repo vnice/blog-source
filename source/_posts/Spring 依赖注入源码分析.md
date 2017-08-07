@@ -7,8 +7,7 @@ categories: [Spring 源码分析]
 
 # getBean
 
-> 之前写的[Spring IOC 容器](https://vnice.github.io/2014/02/04/Spring%20IOC%20%E5%AE%B9%E5%99%A8/)
-这篇文章大致讲了一些IoC容器的初始化过程,主要是IoC容器中建立BeanDefinition的数据映射。
+> 之前写的[Spring IOC 容器](https://vnice.github.io/2014/02/04/Spring%20IOC%20%E5%AE%B9%E5%99%A8/)这篇文章大致讲了一些IoC容器的初始化过程,主要是IoC容器中建立BeanDefinition的数据映射。
 但是还没涉及到IoC容器对Bean的依赖关系进行注入，接下来从源码角度分析一下IoC容器是怎样对Bean的依赖关系进行注入的。
 
 首先注意到依赖注入的过程是用户第一次向IoC容器获取Bean时触发的。也就是最基本的BeanFactory接口中的getBean方法，下面从它
@@ -311,4 +310,7 @@ createBean 不但要生成了需要的Bean,还对Bean初始化进行了处理，
 
 # populateBean
 上面个介绍了Bean对象的生成，在Bean对象生成完成以后，怎样把Bean的依赖对象的关系设置好，完成整个依赖注入过程。就是上面提到了populateBean方法，
-这里代码优点多不贴了。总之是对各种数据类型的依赖进行注入
+这里代码优点多不贴了。总之是对各种数据类型的依赖进行注入。
+
+# 参考
+[《Spring 技术内幕-深入理解SPring架构与设计原理第二版》](https://item.jd.com/10922251.html)
